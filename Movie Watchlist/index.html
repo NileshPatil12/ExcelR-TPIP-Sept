@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Watchlist</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #e5e5e5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    input, button {
+      padding: 12px;
+      margin: 8px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    input {
+      border-color: #ccc;
+    }
+    button {
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .add-btn {
+      background-color: #007bff;
+      color: white;
+    }
+    .clear-all-btn {
+      background-color: #ff5733;
+      color: white;
+    }
+    .clear-watched-btn {
+      background-color: #f39c12;
+      color: white;
+    }
+    .watchlist {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .watchlist li {
+      background-color: #fafafa;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+    .watchlist li:hover {
+      transform: scale(1.03);
+    }
+    .watchlist li .movie-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #333;
+    }
+    .watched {
+      color: #28a745;
+    }
+    .not-watched {
+      color: #dc3545;
+    }
+    .movie-actions button {
+      margin-left: 10px;
+      padding: 8px 15px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .movie-actions button:hover {
+      background-color: #d7d7d7;
+    }
+    .remove-btn {
+      background-color: #ef4444;
+      color: white;
+      border: none;
+    }
+    .remove-btn:hover {
+      background-color: #dc2626;
+    }
+    .clear-btn-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      .container {
+        width: 100%;
+        padding: 20px;
+      }
+      input, button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Movie Watchlist</h1>
+    <input type="text" id="movieName" placeholder="Enter movie name" />
+    <button onclick="addMovie()" class="add-btn">Add Movie</button>
+    
+    <div class="clear-btn-container">
+      <button class="clear-all-btn" onclick="clearAllMovies()">Clear All Movies</button>
+      <button class="clear-watched-btn" onclick="clearWatchedMovies()">Clear Watched Movies</button>
+    </div>
+    
+    <ul id="watchlist" class="watchlist"></ul>
+  </div>
+
+  <script>
+    const watchlistElement = document.getElementById("watchlist");
+    const movieNameInput = document.getElementById("movieName");
+
+    // Load the watchlist from localStorage or set to an empty array
+    let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+
+    // Function to render the watchlist
+    function renderWatchlist() {
+      watchlistElement.innerHTML = ""; // Clear the list
+
+      watchlist.forEach((movie, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <div>
+            <span class="movie-name ${movie.watched ? 'watched' : 'not-watched'}">${movie.name}</span> 
+            <span>- <strong class="${movie.watched ? 'watched' : 'not-watched'}">${movie.watched ? "Watched" : "Not Watched"}</strong></span>
+          </div>
+          <div class="movie-actions">
+            <button onclick="toggleWatched(${index})">${movie.watched ? "Mark Unwatched" : "Mark Watched"}</button>
+            <button onclick="removeMovie(${index})" class="remove-btn">Remove</button>
+          </div>
+        `;
+        watchlistElement.appendChild(li);
+      });
+    }
+
+    // Function to add a new movie to the watchlist
+    function addMovie() {
+      const movieName = movieNameInput.value.trim();
+      if (movieName !== "") {
+        watchlist.push({ name: movieName, watched: false });
+        movieNameInput.value = ""; // Clear the input field
+        saveWatchlist(); // Save to localStorage
+        renderWatchlist(); // Re-render the watchlist
+      }
+    }
+
+    // Function to toggle the watched status of a movie
+    function toggleWatched(index) {
+      watchlist[index].watched = !watchlist[index].watched;
+      saveWatchlist(); // Save to localStorage
+      renderWatchlist(); // Re-render the watchlist
+    }
+
+    // Function to remove a movie from the watchlist
+    function removeMovie(index) {
+      watchlist.splice(index, 1);
+      saveWatchlist(); // Save to localStorage
+      renderWatchlist(); // Re-render the watchlist
+    }
+
+    // Function to clear all movies from the watchlist
+    function clearAllMovies() {
+      if (confirm("Are you sure you want to clear all movies from your watchlist?")) {
+        watchlist = []; // Empty the watchlist array
+        saveWatchlist(); // Save the empty watchlist to localStorage
+        renderWatchlist(); // Re-render the watchlist (will be empty)
+      }
+    }
+
+    // Function to clear watched movies only
+    function clearWatchedMovies() {
+      if (confirm("Are you sure you want to remove all watched movies from your watchlist?")) {
+        watchlist = watchlist.filter(movie => !movie.watched); // Remove watched movies
+        saveWatchlist(); // Save the updated list to localStorage
+        renderWatchlist(); // Re-render the watchlist
+      }
+    }
+
+    // Save the current watchlist to localStorage
+    function saveWatchlist() {
+      localStorage.setItem("watchlist", JSON.stringify(watchlist));
+    }
+
+    // Initial render
+    renderWatchlist();
+  </script>
+</body>
+</html>

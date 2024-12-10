@@ -1,0 +1,406 @@
+/* some variable those are needed many times. */
+:root{
+    --yellow:#ffdd00;
+    --lightDark:#333333;
+    --footerBg:#1a1c20;
+    --poppins: 'Poppins', sans-serif;
+   --montserrat: 'Montserrat', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+a,p,li{
+    list-style: none;
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: var(--montserrat);
+}
+p,span,a{
+    font-family: var(--poppins);
+}
+img{
+    max-width: 100%;
+}
+/* custom css start */
+/* manu part start */
+.container{
+    max-width: 1300px;
+}
+header{
+    height: 90px;
+    line-height: 90px; 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background: white;
+    z-index: 10;
+}
+header img{
+    max-width: 50%;
+}
+header nav{
+    text-align: center;
+}
+header nav a{
+    color:#333333;
+    padding: 1.7em;
+    font-weight: 600;
+    line-height: 0;
+}
+header nav a:hover{
+    color: var(--yellow);
+}
+/* manu part end */
+
+/* banner part start */
+.banner{
+    margin-top: 90px;
+    background: url(../img/WorkSpace-01-scaled.jpg) no-repeat 20% 30%;
+    background-size: cover;
+    width: 100%;
+    height:calc(768px - 5%);
+    max-height: calc(768px - 5%);
+    user-select: none;
+    overflow: hidden;
+}
+
+.btn{
+    background: var(--yellow);
+    border-radius: 3em;
+    padding: .4em 1.6em;
+}
+.btn:hover{
+    background: var(--footerBg);
+    color: white;
+}
+a span i.xyz{
+    font-weight: bolder;
+    font-size: 1.1em;
+}
+.leftContainer{
+    transform: translateY(100%);
+    position: relative;
+    animation: bannerLeft 1s linear .0001s 1;
+}
+
+.leftContainer .subtitle{
+    letter-spacing: 16px;
+    font-size: 1.3em;
+    font-family: var(--poppins);
+    color: #ffdd00;
+}
+.leftContainer h2{
+    font-size: 3.5em;
+    color: #333333;
+}
+.leftContainer strong{
+    color: black;
+}
+.rightImg{
+    position: relative;
+    animation: bannerRight 2s linear .0001s 1 ;
+}
+.rightImg img{
+    width:75%;
+}
+/* banner animation part start*/
+@keyframes bannerLeft {
+    0%{
+        position: absolute;
+        left: -100%;
+        opacity: 0;
+        visibility: hidden;
+    }
+    100%{
+        left: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+@keyframes bannerRight {
+    0%{
+        transform: translateX(100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+/* banner animation part end */
+/* banner section end */
+
+
+/* yellow section start */
+.yellowSec{
+    background: var(--yellow);
+}
+.yellowSec h4{
+    color: black;
+    padding: 1.8em 0;
+}
+.yellowSec .btn{
+    border:1px solid var(--footerBg);
+    align-items: center;
+    font-size: 1.3em;
+    font-weight: 600;
+    line-height: 2em;
+}
+.yellowSec .btn:hover{
+    background-color: #fff;
+    color: black;
+}
+/* yellow section end  */
+
+/* about us section start */
+.aboutUs{
+    background:url(../img/landing-background.jpg) no-repeat 20% 30% ;
+    background-size: cover;
+    text-align: center;
+}
+.outTitle{
+    padding: 3em 0;
+}
+.outTitle h6{
+    letter-spacing: 10px;
+}
+.multipleH2{
+    font-weight: 800;
+    color:black;
+    position: relative;
+}
+.multipleH2::after{
+    content: '';
+    position: absolute;
+    top: 150%;
+    left: calc(50% - .5em);
+    margin: auto;
+    width: 1.6em;
+    height: .1em;
+    background: var(--yellow);
+
+}
+/* about us section end */
+
+/* service box start */
+.aboutUs img{
+    max-width: 4em;
+    padding: 1em 0;
+    transition: .3s;
+}
+.aboutUs .col-md-3{
+    flex: 1;
+}
+.serviceBox .col-md-3{
+    background: white;
+    border-radius: 5px;
+    padding: 1em;
+    margin: .5em;
+}
+.aboutUs .col-md-3:hover img{
+    transform: scale(1.2);
+}
+.aboutUs h4{
+    color: black;
+    font-weight: bold;
+}
+
+.video{
+    position: relative;
+}
+.video img{
+    max-width: 60px;
+}
+.vidThum{
+    background: url(../img/right_thumbline.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 75vh;
+}
+.videoIconDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+}
+.videoIconDiv::after{
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background:transparent;
+    z-index: -1;
+    
+    animation: xyz 1s ease-in-out  infinite;
+}
+@keyframes xyz  {
+    0%{
+        outline: 5px solid var(--yellow);
+        transform: scale(1);
+    }
+    25%{
+        outline: 7px solid rgba(255,221,0,0.8);
+        transform: scale(1.01);
+    }
+    50%{
+        outline: 10px solid rgba(255,221,9,0.5); 
+        transform: scale(1.02); 
+    }
+    75%{
+        outline: 12px solid rgba(255,221,0,0.3);
+        transform: scale(1.03);
+    }
+    100%{
+        outline: 10px solid rgba(255,221,0,0.2);
+        transform: scale(1.04);
+    }
+}
+.whatWeDo li{
+    list-style: none;
+    font-weight: bold;
+}
+.whatWeDo a {
+    font-weight: bold;
+}
+.whatWeDo li::before{
+    content: "\f105";
+    font-weight: 600;
+    margin-right: .2em;
+    font-size: 1.2em;
+    font-family: "FontAwesome";
+    color: #ffdd00;
+    font-weight: bold;
+}
+/* What we do section end */
+
+/* Partner with us Section */
+.partnerWithUs{
+    background: url(../img/sliderbg.jpg) no-repeat center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 48em;
+    margin-bottom:20em ;
+}
+/* partner whit us end */
+
+/* Work with us section start */
+.workWithUs{
+    background: url(../img/businessman.jpg) no-repeat center scroll;
+    background-size: cover;
+    width: 100%;
+    height: 48em;
+    position: relative;
+    z-index: 1;
+}
+.workWithUs::after{
+    content: "";
+    top: 0;
+    left:0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: -2;
+}
+.workWithUs strong{
+    font-size: 1.2em;
+}
+.pforwwu{
+    text-align: justify;
+    color: rgba(255,255,255,0.9);
+}
+/* work with us end */
+
+/* contact with us section start */
+.contact{
+    background: url(../img/header_bg.jpg) no-repeat center fixed;
+    box-sizing: cover;
+}
+form strong{
+    font-size: 1.2em;
+    color: #333333;
+}
+textarea{
+    resize: vertical;
+    overflow-y: auto !important;
+    background: transparent !important;
+}
+.submitBtn{
+    border-radius: .3em;
+    background: var(--yellow);
+    font-weight: bold;
+    border:none;
+    padding: .9em 2em;
+}
+.socialIcon .fa{
+    font-size: 1.3em;
+    width: 1.5em;
+    height: 1.5em ;
+    line-height: 1.6em;
+    font-weight: 500;
+    border-radius: .2em;
+    color:white;
+}
+.socialIcon .fa-facebook{
+    background: rgb(51, 51, 206);
+}
+.socialIcon .fa-twitter{
+    background: rgb(10, 149, 241);
+}
+.socialIcon .fa-instagram{
+    background: linear-gradient(to top left, rgb(109, 109, 241),rgb(219, 12, 209));
+}
+.socialIcon .fa-envelope{
+    background: var(--yellow);
+}
+/* contact section end */
+
+/* fixed animation css here */
+.fixedBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4em;
+    height: 4em;
+    background: var(--yellow);
+    border-radius: 50%;
+    position: fixed;
+    top: 87.5vh;
+    left: 1.3em;
+    z-index: 5;
+    animation: fixedBoxAnimate 2s linear .1s infinite alternate;
+}
+.fixedPhone{
+    font-size: 2em;
+    color: black;
+}
+@keyframes fixedBoxAnimate {
+    0%{
+        background: var(--yellow);
+        transform: scale(1);
+        transition: cubic-bezier(0.215, 0.610, 0.355, 1);
+    }
+    50%{
+        transform: scale(0.6);
+        transition: cubic-bezier(0.215, 0.610, 0.355, 1);
+    }
+    100%{
+        transform: scale(1);
+        transition: cubic-bezier(0.215, 0.610, 0.355, 1);
+    }
+}
+
+/* footer section start */
+footer{
+    background: var(--footerBg);
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 600;
+}

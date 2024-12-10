@@ -1,0 +1,243 @@
+/*for expand and collapse menu */
+#firstIcon,
+#secentIcon{
+    display: none;
+}
+#radioBar:checked ~ nav{
+    opacity: 1;
+    visibility: visible;
+    right: 0;
+}
+#radioBar:checked ~ #firstIcon{
+    display: none;
+}
+#radioBar:checked ~ #secentIcon{
+    display: block;
+    font-size: 2em;
+    position: absolute;
+    top: 0;
+    right: 1em;
+    z-index: 100;
+}
+
+/* media query for max 1270px */
+@media screen and (max-width:1270px) {
+    header nav{
+        opacity: 0;
+        visibility: hidden;
+        display: block;
+        width: 30vw;
+        height: 100vh;
+        background: white;
+        position: absolute;
+        right: -40vw;
+        top: 0;
+        z-index: 99;
+        box-shadow: 0 0 100vw 100vh rgba(0,0,0,.4);
+        transition: .3s;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .headerLeft .logo img{
+        width: 100%;
+    }
+    .fst{
+        margin-top: 5em;
+    }
+    header nav a{
+        display: block;
+        height: 3em;
+        text-align: left;
+        line-height: 0;
+        border-bottom: 1px solid #00fff0;
+
+    }
+    #firstIcon{
+        display: block;
+        float: right;
+        font-size: 2em;
+    }
+
+}
+
+/* media query for max 1200px */
+@media  all and (max-width:1200px) {
+    /* banner part start */
+    .leftContainer{
+        transform: translateY(100%);
+        font-size: 60%;
+    }
+    .leftContainer p{
+        font-size: 120%;
+    }
+    .leftContainer subtitle{
+        font-size: 50%;
+        display: block;
+    }
+
+    header nav{
+        width: 30vw;
+    }
+    .yellowSec .col-md-9 h4{
+        font-size: 100%;
+    }
+    header{
+        height:70px !important;
+        top:-15px !important;
+    }
+}
+
+/* media query for max 992px */
+@media  all and (max-width:992px) {
+    header .headerLeft{
+        width: 80% !important;
+        text-align:left;
+        margin-left: 3em;
+    }
+    header .headerRight{
+        width: 10% !important;
+        text-align:center;
+
+    }
+    header img{
+        max-width: 19%;
+    }
+    .leftContainer{
+        transform: translateY(70%);
+        font-size: 60%;
+    }
+    header nav{
+        width: 40vw;
+    }
+    .aboutUs .col-md-3{
+        min-width: 50%;
+    }
+    .yellowSec .col-md-9 h4{
+        text-align: center;
+        font-size: 90%;
+    }
+    .yellowSec .col-md-3{
+        text-align: center;
+    }
+    .yellowSec .btn{
+        padding:2em;
+    }
+    .btn{
+        font-size: 90% !important;
+        padding: .3em 1em !important;
+    }
+    .rightContant p{
+        font-size: 90%;
+    }
+
+    .rightImg {
+        text-align: center;
+    }
+    .rightImg img{
+        width:70%;
+    }
+    @keyframes bannerRight {
+        0%{
+            transform: translateX(50%);
+            opacity: 0;
+            visibility: hidden;
+        }
+        100%{
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+/* media query for max 768px */
+@media  all and (max-width:768px) {
+    header img{
+        max-width: 25%;
+    }
+    .leftContainer{
+        transform: translateY(15%);
+        font-size: 55%;
+    }
+    .btn{
+        font-size: 100%;
+    }
+    #firstIcon{
+        font-size: 1.4em;
+    }
+    .aboutUs .col-md-3{
+        font-size: 80%;
+    }
+    .partnerWithUs{
+        height: fit-content !important;
+        margin-bottom: 0 !important;
+    }
+    .workWithUs{
+        height: fit-content !important;
+    }
+    .rightContant p{
+        font-size: 70%;
+    }
+    .vidThum{
+	height:55vh;
+    }
+    .textCol6{
+        margin-bottom: 2.55em;
+    }
+    .textCol6,
+    .imgCol6{
+        width: 100% !important;
+    }
+}
+
+/* media query for max 621px */
+@media  all and (max-width:621px) {
+    .leftContainer{
+        transform: translateY(10%);
+        font-size: 50%;
+    }
+    header .headerLeft{
+        width: 70% !important;
+    }
+    header nav{
+        width: 50vw;
+    }
+    #firstIcon{
+        font-size: 1.3em;
+    }
+}
+
+/* media query for max 500px */
+@media  all and (max-width:500px) {
+
+    header nav{
+        width: 60vw;
+    }
+    #firstIcon{
+        font-size: 1.2em;
+    }
+    .rightContant p{
+        font-size: 50%;
+    }
+    .leftContainer subtitle{
+        font-size: 30%;
+        letter-spacing: 5px;
+        display: block;
+    }
+}
+
+/* media query for max 380px */
+@media  all and (max-width:380px) {
+
+    header .headerLeft{
+        width: 60% !important;
+    }
+    header nav{
+        width: 65vw;
+    }
+}
+@media  all and (max-width:300px) {
+    header nav{
+        width: 80vw;
+    }
+}

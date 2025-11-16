@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Paragraph Styling</title>
+<style>
+/* Type Selector */
+p {
+    font-family: Arial, sans-serif;
+    color: green;
+}
+
+/* Class Selector */
+.orange {
+    color: orange;
+}
+
+/* ID Selector */
+#red-paragraph {
+    color: red;
+}
+
+/* Descendant Selector */
+.paragraph-with-class {
+    font-weight: bold;
+}
+
+/* Attribute Selector */
+p[style] {
+    color: purple;
+}
+
+</style>
+</head>
+<body>
+
+<p class="green">This is a paragraph.</p>
+
+<p class="orange paragraph-with-class">This paragraph has a class.</p>
+
+<p id="red-paragraph">This paragraph has an ID.</p>
+
+<p style=" ">This paragraph has inline styling.</p>
+
+</body>
+</html>

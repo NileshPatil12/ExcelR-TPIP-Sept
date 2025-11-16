@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f1f3f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .sec1 {
+            background-color: #2874f0;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            width: 100vw;
+        }
+
+        .sec1 h2 {
+            font-size: 34px;
+            margin-bottom: 30px;
+        }
+
+        .sec1 p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .sec1 .logo {
+            max-width: 90%;
+            margin-top: auto;
+        }
+
+        .sec1 img {
+            height: auto;
+            width: auto;
+        }
+
+        .sec2 {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #fff;
+            width: 100vw;
+        }
+
+        .sec2 input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border-width: 0px 0px 1px 0px;
+
+        }
+
+        .sec2 p {
+            font-size: 14px;
+            color: #878787;
+            margin-bottom: 20px;
+        }
+
+        .sec2 a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        .btn {
+            background-color: #fb641b;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #ff8533;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sec1">
+            <h2>Login</h2>
+            <p>Get access to your Orders, Wishlist, and Recommendations</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCGTv88UapsOAs-MM8pChXiR-mcxX__hSmKA&s"
+                alt="Flipkart Logo" class="logo">
+        </div>
+        <div class="sec2">
+            <form action="" class="form">
+                <input type="text" name="input" id="input" placeholder="Enter Email/Name" oninput="validateInput()"
+                    required><br>
+                <p id="Feedback"></p>
+                <p>By continuing, you agree to Flipkart's
+                    <a href="#" style="color: blue;">Terms of Use</a> and
+                    <a href="#" style="color: blue;">Privacy Policy</a>
+                </p>
+                <button type="submit" class="btn">Request OTP</button>
+            </form>
+            <div class="create-account">
+                <a href="#" style="color: blue; ">New to Flipkart? Create an account</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Real-time validation for Email 
+        const feedback = document.getElementById('Feedback');
+
+        function validateInput() {
+            const input = document.getElementById('input').value;
+
+            // Check if the input contains "@" and "." for email validation
+            if (input.includes('@') && input.includes('.')) {
+                const parts = input.split('@');
+                const domain = parts[1] ? parts[1].split('.')[0] : '';
+
+                // Domain-specific feedback for email
+                if (domain === 'gmail') {
+                    feedback.innerHTML = 'It\'s a Gmail account';
+                } else if (domain === 'hotmail') {
+                    feedback.innerHTML = 'It\'s a Hotmail account';
+                } else if (domain === 'yahoo') {
+                    feedback.innerHTML = 'It\'s a Yahoo account.';
+                } else {
+                    feedback.innerHTML = 'Valid email address.';
+                }
+                return true;
+
+                // Check if the input is a 10-digit number for mobile validation
+            } else if (input.length === 10 && !isNaN(input)) {
+                feedback.innerHTML = 'Mobile number is valid';
+                return true;
+
+                // If neither, show an error message
+            } else {
+                feedback.innerHTML = 'Please enter a valid email address with @ and a domain or a 10-digit mobile number.';
+                return false;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

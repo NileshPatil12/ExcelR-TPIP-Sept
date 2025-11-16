@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Background Color</title>
+</head>
+<body>
+  <p class="highlight">Highlight me!</p>
+  <p class="highlight">Highlight me too!</p>
+  <button onclick="changeBackground()">Change Background Color</button>
+
+  <script>
+    function changeBackground() {
+      document.querySelectorAll(".highlight").forEach(element => {
+        element.style.backgroundColor = "yellow";
+      });
+    }
+  </script>
+</body>
+</html>

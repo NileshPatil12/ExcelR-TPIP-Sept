@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: linear-gradient(to bottom,pink,violet);
+            height: 100vh;
+            width: 100vh;
+        }
+        .container{
+            display: flex;
+            flex-direction: row;
+            margin-top: 100px;
+            background: none;
+        }
+        .container2{
+            display: flex;
+            flex-direction: row;
+            margin-top: 100px;
+            justify-content: space-around;
+            background: none;
+        }
+        .item{
+            height: 100px;
+            width: 150px;
+            background: linear-gradient(to bottom,yellow,orange);
+            background-color: orange;
+            margin: 4px;
+            display: flex;
+            flex-direction: row;
+            border: 2px solid black;
+        }
+        .inbox{
+            height: 25%;
+            width: 25%;
+            background: linear-gradient(to bottom,lightblue,blue);
+            background-color: blue;
+            border: 2px solid black;
+        }
+        .item1{
+            justify-content: flex-start;
+        }
+        .item2{
+            justify-content: center;
+        }
+        .item3{
+            justify-content: flex-end;
+        }
+        .item4{
+            justify-content:space-around;
+        }
+        .item5{
+            justify-content:space-evenly;
+        }
+        .item6{
+            justify-content:space-between;
+        }
+        .item8{
+            align-items: center;
+        }
+        .item9{
+            align-items: flex-end;
+        }
+        .item10{
+            align-items: center;
+            justify-content: center;
+        }
+        .item11{
+            justify-content: center;
+            align-items: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item item1">
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+        </div>
+        <div class="item item2">
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+        </div>
+        <div class="item item3">
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+        </div>
+        <div class="item item4">
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+        </div>
+        <div class="item item5">
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+        </div>
+        <div class="item item6">
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+        </div>
+        <div class="item item7">
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="item item8">
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+        </div>
+        <div class="item item9">
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+        </div>
+        <div class="item item10">
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+        </div>
+        <div class="item item11">
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+            <div class="inbox"></div>
+        </div>
+    </div>
+</body>
+</html>

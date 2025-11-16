@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media screen and (max-width: 780px) {
+            #container{
+                font-size: xxx-large;
+                font-weight: bold;
+                color: white;
+                display: grid;
+                grid-gap: 10px;
+                margin: 10px;
+            }
+        }
+        header{
+            background-color: green;
+            border: 2px solid black;
+            text-align: center;
+            grid-column: 1/9;
+        }
+        section{
+            background-color: lightgray;
+            border: 2px solid black;
+            text-align: center;
+            grid-column: 1/6;
+        }
+        aside{
+            background-color: darkgreen;
+            border: 2px solid black;
+            text-align: center;
+            grid-column: 6/9;
+            grid-row: 2/4;
+        }
+        footer{
+            background-color: green;
+            border: 2px solid black;
+            text-align: center;
+            grid-column: 1/9;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header>Header</header>
+        <section class="sec">Section</section>
+        <aside class="aside">Aside</aside>
+        <footer>Footer</footer>
+    </div>
+</body>
+</html>

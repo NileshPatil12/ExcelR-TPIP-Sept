@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log List Items</title>
+</head>
+<body>
+  <ul class="items">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+  <button onclick="logListItems()">Log List Items</button>
+
+  <script>
+    function logListItems() {
+      document.querySelectorAll(".items li").forEach(item => {
+        console.log(item.textContent);
+      });
+    }
+  </script>
+</body>
+</html>

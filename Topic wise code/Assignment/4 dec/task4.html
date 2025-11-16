@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="id" width="200" height="200"></canvas>
+    <script>
+        const canvas = document.getElementById('id');
+        const ctx = canvas.getContext('2d');
+        const centerX = 100, centerY = 100, radius = 50;
+        const sides = 5, angle = (2 * Math.PI) / sides;
+
+        ctx.beginPath();
+        for (let i = 0; i <= sides; i++) {
+            const x = centerX + radius * Math.cos(i * angle - Math.PI / 2);
+            const y = centerY + radius * Math.sin(i * angle - Math.PI / 2);
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.fillStyle = 'purple';
+        ctx.fill();
+    </script>
+
+</body>
+
+</html>

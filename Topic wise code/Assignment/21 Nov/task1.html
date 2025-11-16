@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+        <span id="error" style="color: red;"></span><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (e) {
+            const emailField = document.getElementById('email');
+            const errorSpan = document.getElementById('error');
+            if (emailField.value.trim() === "") {
+                e.preventDefault(); // Prevent form submission
+                errorSpan.innerHTML = "Email cannot be empty!";
+            } else {
+                errorSpan.innerHTML = ""; // Clear error
+            }
+        });
+    </script>
+</body>
+</html>

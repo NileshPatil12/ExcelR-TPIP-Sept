@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Save Name in localStorage</title>
+</head>
+<body>
+    <label for="username">Name:</label>
+    <input type="text" id="username">
+    <button id="saveBtn">Save Name</button>
+    <p id="displayName"></p>
+
+    <script>
+        const saveBtn = document.getElementById('saveBtn');
+        const displayName = document.getElementById('displayName');
+
+        saveBtn.addEventListener('click', function () {
+            const name = document.getElementById('username').value;
+            if (name) {
+                localStorage.setItem('savedName', name);
+                displayName.textContent = `Saved Name: ${name}`;
+            } else {
+                alert("Please enter a name before saving.");
+            }
+        });
+
+        // Display saved name on page load
+        window.addEventListener('load', function () {
+            const savedName = localStorage.getItem('savedName');
+            if (savedName) {
+                displayName.textContent = `Saved Name: ${savedName}`;
+            }
+        });
+    </script>
+</body>
+</html>

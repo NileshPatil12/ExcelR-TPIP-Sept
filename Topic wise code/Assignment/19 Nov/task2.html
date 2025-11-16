@@ -1,0 +1,29 @@
+<!-- write a program to create a new <div></div> element with the text "hello world" and add it to the DOM -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2 </title>
+</head>
+<body>
+  <button id="createDivButton">Add Div</button>
+  <div id="container"></div>
+
+  <script>
+    
+    const createDivButton = document.getElementById("createDivButton");
+    const container = document.getElementById("container");
+
+    
+    createDivButton.addEventListener("click", () => {
+      
+      const newDiv = document.createElement("div");
+
+      newDiv.innerHTML = "Hello World";
+
+      container.appendChild(newDiv);
+    });
+  </script>
+</body>
+</html>

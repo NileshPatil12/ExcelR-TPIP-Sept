@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            @keyframes moving {
+                from {
+                    left: 0%;
+                }
+    
+                to {
+                    left: 100%;
+                }
+            }
+    
+            div {
+                background-color: aqua;
+                width: 150px;
+                height: 100px;
+                position: relative;
+                animation: moving 5s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 2;
+                animation-direction: alternate;
+            }
+    
+            p {
+                position: relative;
+                animation: moving 5s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 4;
+                animation-direction: alternate;
+            }
+    
+            #huntr-react-container-2 {
+                display: none;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div>Notice</div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis et, sunt cupiditate officia temporibus ad
+            minima a accusantium non quia eos magnam facere odio facilis voluptatem voluptas cum adipisci ipsa fugit
+            repellendus?</p>
+    </body>
+</html>

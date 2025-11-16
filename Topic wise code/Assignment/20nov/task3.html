@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #colorDiv {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+      text-align: center;
+      line-height: 200px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Click to Change Background</h1>
+  <div id="colorDiv">Click Me</div>
+
+  <script>
+    const colorDiv = document.getElementById('colorDiv');
+
+    colorDiv.addEventListener('click', () => {
+      colorDiv.style.backgroundColor = 'lightblue' ;
+    });
+  </script>
+</body>
+</html>

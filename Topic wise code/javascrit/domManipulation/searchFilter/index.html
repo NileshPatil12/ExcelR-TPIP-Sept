@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Online Shop</h1>
+
+  <!-- Search and Filter Section -->
+  <div class="search-filter-section">
+    <input type="text" id="search" placeholder="Search products..." oninput="filterProducts()">
+
+    <select id="category" onchange="filterProducts()">
+      <option value="all">All Categories</option>
+      <option value="electronics">Electronics</option>
+      <option value="fashion">Fashion</option>
+      <option value="home">Home</option>
+    </select>
+
+    <select id="price" onchange="filterProducts()">
+      <option value="all">All Prices</option>
+      <option value="0-50">Under $50</option>
+      <option value="50-100">$50 - $100</option>
+      <option value="100-500">$100 - $500</option>
+    </select>
+  </div>
+
+  <!-- Product Display Section -->
+  <div id="product-list" class="product-list"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

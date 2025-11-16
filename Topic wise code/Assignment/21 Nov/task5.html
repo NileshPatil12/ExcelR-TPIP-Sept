@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scroll Tracker</title>
+    <style>
+        body {
+            height: 2000px; /* To enable scrolling */
+        }
+        #scrollPosition {
+            position: fixed;
+            top: 100px;
+            right: 1000px;
+            background-color: lightgray;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="scrollPosition">Scroll: 0</div>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const scrollPos = window.scrollY;
+            document.getElementById('scrollPosition').textContent = `Scroll: ${scrollPos}`;
+        });
+    </script>
+</body>
+</html>

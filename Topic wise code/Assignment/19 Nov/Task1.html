@@ -1,0 +1,31 @@
+<!-- write a program to add and then remove  a click event listener on a button-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1</title>
+</head>
+<body>
+  <button id="actionButton">Click Me!</button>
+  <button id="removeListenerButton">Remove Click Event</button>
+
+  <script>
+    function handleClick() {
+      alert("Button clicked!");
+    }
+
+    const actionButton = document.getElementById("actionButton");
+    const removeListenerButton = document.getElementById("removeListenerButton");
+
+    actionButton.addEventListener("click", handleClick);
+
+    removeListenerButton.addEventListener("click", () => {
+      actionButton.removeEventListener("click", handleClick);
+      alert("Click event listener removed!");
+    });
+  </script>
+</body>
+</html>
+

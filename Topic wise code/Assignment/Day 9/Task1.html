@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            margin: 10px;
+            align-items: center;
+        }
+
+        .section {
+            background-color: blue;
+            font-size: 50px;
+            color: white;
+            padding: 4px 4px;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            width: 30%;
+            height: fit-content;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            * {
+                height: auto;
+                width: 100vw;
+            }
+            .container {
+                flex-direction: row;
+                justify-content: center;
+            }
+            .section {
+                background-color: green;
+                padding: 8px;
+                margin-top: 10px;
+                margin-right: 4px;
+                height: fit-content;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section home">Home</div>
+        <div class="section about">About</div>
+        <div class="section content">Contact</div>
+    </div>
+</body>
+</html>

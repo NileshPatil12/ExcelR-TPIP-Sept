@@ -1,0 +1,27 @@
+<!-- write a program to add the active class to a button with the ID myButton -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 4</title>
+  <style>
+    .active {
+      background-color: blue;
+      color: white;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+<body>
+  <button id="myButton">Click Me</button>
+
+  <script>
+    const myButton = document.getElementById("myButton");
+
+    myButton.addEventListener("click", () => {
+      myButton.classList.add("active");
+    });
+  </script>
+</body>
+</html>

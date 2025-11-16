@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-areas: 
+                "header header header header"
+                "box1 box2 box3 sidebar"
+                "main main main sidebar"
+                "footer footer footer footer";
+            grid-template-columns: repeat(3, 1fr) 200px;
+            grid-template-rows: auto auto 1fr auto; 
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #ff5722;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .box {
+            background-color: #ff5722;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .main {
+            grid-area: main;
+            background-color: #ff5722;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #ff5722;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: #ff5722;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="grid-container">
+    <div class="header">Header</div>
+    <div class="box">Small box</div>
+    <div class="box">Small box</div>
+    <div class="box">Small box</div>
+    <div class="sidebar">Sidebar</div>
+    <div class="main">Main content</div>
+    <div class="footer">Footer</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Focus/Blur Effect</title>
+</head>
+<body>
+    <label for="inputField">Enter Text:</label>
+    <input type="text" id="inputField"><br><br>
+
+    <script>
+        const inputField = document.getElementById('inputField');
+
+        inputField.addEventListener('focus', function () {
+            inputField.style.backgroundColor = "lightblue";
+        });
+
+        inputField.addEventListener('blur', function () {
+            inputField.style.backgroundColor = "";
+        });
+    </script>
+</body>
+</html>

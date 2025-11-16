@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Email Verification</title>
+    <style>
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Email Verification</h2>
+    <input type="text" class="mail">
+    <button type="submit" onclick="submit()">submit</button>
+
+    <script>
+        function submit(){
+            a=document.getElementsByClassName("mail")[0].value;
+            let b=a.split('@');
+            console.log(b);
+            let c=b[1].split('.');
+            console.log(c);
+            if(c[0]==="gmail"){
+                console.log("It it gmail");
+            }
+            else if(c[0]==="hotmail"){
+                console.log("It it hotmail");
+            }
+            else if(c[0]==="yahoo"){
+                console.log("It it yahoo");
+            }
+        }
+    </script>
+
+</body>
+</html>

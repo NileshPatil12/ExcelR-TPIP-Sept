@@ -1,0 +1,31 @@
+<!-- write a program to create a new <li> element and append it to an existing <ul> with the ID myList -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Task 3</title>
+    </head>
+    <body>
+      <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+      </ul>
+      <button id="addListItemButton">Add List Item</button>
+    
+      <script>
+        const addListItemButton = document.getElementById("addListItemButton");
+        const myList = document.getElementById("myList");
+        
+        let i=3;
+        addListItemButton.addEventListener("click", () => {
+          const newListItem = document.createElement("li");
+          newListItem.innerHTML = "New Item "+i;
+          i++;
+          myList.appendChild(newListItem);
+        });
+      </script>
+    </body>
+    </html>
+    

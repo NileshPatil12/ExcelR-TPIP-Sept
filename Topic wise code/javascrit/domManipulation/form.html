@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <style>
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.85em;
+    }
+
+    input.invalid,
+    select.invalid,
+    textarea.invalid {
+      border-color: red;
+    }
+
+    input.valid,
+    select.valid,
+    textarea.valid {
+      border-color: green;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" oninput="validateName()">
+        <div id="nameFeedback" class="error"></div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" oninput="validateEmail()">
+        <div id="emailFeedback" class="error"></div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" oninput="validatePassword()">
+        <div id="passwordFeedback" class="error"></div>
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label>Gender</label><br>
+        <input type="radio" id="male" name="gender" value="Male" onchange="validateGender()">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female" onchange="validateGender()">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="Other" onchange="validateGender()">
+        <label for="other">Other</label>
+        <div id="genderFeedback" class="error"></div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone" oninput="validatePhone()">
+        <div id="phoneFeedback" class="error"></div>
+      </div>
+
+      <!-- Address -->
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="3" oninput="validateAddress()"></textarea>
+        <div id="addressFeedback" class="error"></div>
+      </div>
+
+      <!-- Zip Code -->
+      <div class="form-group">
+        <label for="zipCode">Zip Code</label>
+        <input type="text" id="zipCode" name="zipCode" oninput="validateZipCode()">
+        <div id="zipCodeFeedback" class="error"></div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script src="validation.js"></script>
+</body>
+</html>

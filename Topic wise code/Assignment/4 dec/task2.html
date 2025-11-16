@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="circleCanvas" width="2000" height="2000"></canvas>
+    <script>
+        const canvas = document.getElementById('circleCanvas');
+        const ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(200, 200, 150, 0, 2*Math.PI); // (x, y, radius, startAngle, endAngle)
+        ctx.fillStyle = 'red';
+        ctx.fill();
+    </script>
+</body>
+
+</html>

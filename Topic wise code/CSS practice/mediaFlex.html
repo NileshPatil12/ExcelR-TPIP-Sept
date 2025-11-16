@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Layout with CSS Grid</title>
+    <style>
+        @media screen and (max-width: 800px) {
+            .content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            flex-shrink: 0;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            background-color: #f4f4f4;
+            width: 250px;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+
+        .main {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #ddd;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">Header</header>
+        <div class="content">
+            <aside class="sidebar">Sidebar</aside>
+            <main class="main">Main Content</main>
+        </div>
+        <footer class="footer">Footer</footer>
+    </div>
+</body>
+
+
+</html>

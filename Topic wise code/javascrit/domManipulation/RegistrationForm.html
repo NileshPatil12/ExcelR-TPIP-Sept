@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form with Real-Time Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group .message {
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .form-group .error {
+            color: red;
+        }
+
+        .form-group .success {
+            color: green;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Registration Form with Real-Time Validation</h2>
+    <div class="form-container">
+        <form id="registrationForm">
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" oninput="validateName()">
+                <div id="nameFeedback" class="message"></div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" oninput="validateEmail()">
+                <div id="emailFeedback" class="message"></div>
+            </div>
+
+            <!-- Mobile Number Field -->
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="text" id="mobile" name="mobile" placeholder="Enter your mobile number" oninput="validateMobile()">
+                <div id="mobileFeedback" class="message"></div>
+            </div>
+
+            <!-- Address Field -->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address" oninput="validateAddress()">
+                <div id="addressFeedback" class="message"></div>
+            </div>
+
+            <!-- Date of Birth Field -->
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" oninput="validateDOB()">
+                <div id="dobFeedback" class="message"></div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" oninput="validatePassword()">
+                <div id="passwordFeedback" class="message"></div>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" oninput="validateConfirmPassword()">
+                <div id="confirmPasswordFeedback" class="message"></div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Real-time validation for Full Name
+        function validateName() {
+            const name = document.getElementById('name').value;
+            const nameFeedback = document.getElementById('nameFeedback');
+
+            if (name.length < 3) {
+                nameFeedback.innerHTML = '<span class="error">Name must be at least 3 characters long.</span>';
+                return false;
+            } else {
+                nameFeedback.innerHTML = '<span class="success">Looks good!</span>';
+                return true;
+            }
+        }
+
+        // Real-time validation for Email 
+        function validateEmail() {
+            const email = document.getElementById('email').value;
+            const emailFeedback = document.getElementById('emailFeedback');
+
+            if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+                emailFeedback.innerHTML = '<span class="error">Please enter a valid email address with @ and a domain.</span>';
+                return false;
+            } else {
+                const parts = email.split('@');
+                const domain = parts[1] ? parts[1].split('.')[0] : '';
+
+                if (domain === 'gmail') {
+                    emailFeedback.innerHTML = '<span class="success">It\'s a Gmail account.</span>';
+                } else if (domain === 'hotmail') {
+                    emailFeedback.innerHTML = '<span class="success">It\'s a Hotmail account.</span>';
+                } else if (domain === 'yahoo') {
+                    emailFeedback.innerHTML = '<span class="success">It\'s a Yahoo account.</span>';
+                } else {
+                    emailFeedback.innerHTML = '<span class="success">Valid email address.</span>';
+                }
+                return true;
+            }
+        }
+
+        // Real-time validation for Mobile Number
+        function validateMobile() {
+            const mobile = document.getElementById('mobile').value;
+            const mobileFeedback = document.getElementById('mobileFeedback');
+
+            if (mobile.length !== 10 || isNaN(mobile)) {
+                mobileFeedback.innerHTML = '<span class="error">Mobile number must be 10 digits long.</span>';
+                return false;
+            } else {
+                mobileFeedback.innerHTML = '<span class="success">Mobile number is valid.</span>';
+                return true;
+            }
+        }
+
+        // Real-time validation for Address
+        function validateAddress() {
+            const address = document.getElementById('address').value;
+            const addressFeedback = document.getElementById('addressFeedback');
+
+            if (address.length < 5) {
+                addressFeedback.innerHTML = '<span class="error">Address must be at least 5 characters long.</span>';
+                return false;
+            } else {
+                addressFeedback.innerHTML = '<span class="success">Address looks good.</span>';
+                return true;
+            }
+        }
+
+        // Age Validation based on Date of Birth
+        function validateDOB() {
+            const dobInput = document.getElementById('dob').value;
+            const dobFeedback = document.getElementById('dobFeedback');
+
+            if (dobInput) {
+                const dob = new Date(dobInput);
+                const today = new Date();
+                let age = today.getFullYear() - dob.getFullYear();
+                const monthDifference = today.getMonth() - dob.getMonth();
+
+                if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < dob.getDate())) {
+                    age--;
+                }
+
+                if (age < 18) {
+                    dobFeedback.innerHTML = '<span class="error">You must be at least 18 years old to register.</span>';
+                    return false;
+                } else {
+                    dobFeedback.innerHTML = '<span class="success">Age verified.</span>';
+                    return true;
+                }
+            } else {
+                dobFeedback.innerHTML = '<span class="error">Please enter your date of birth.</span>';
+                return false;
+            }
+        }
+
+
+        // Real-time validation for Password
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const passwordFeedback = document.getElementById('passwordFeedback');
+
+            let hasLetter = false;
+            let hasNumber = false;
+            let hasSpecialChar = false;
+            let isLengthValid = false;
+
+            if (password.length >= 6) {
+                isLengthValid = true;
+            }
+
+            for (let i = 0; i < password.length; i++) {
+                const char = password[i];
+
+                if (char >= 'a' && char <= 'z' || char >= 'A' && char <= 'Z') {
+                    hasLetter = true;
+                }
+
+                if (char >= '0' && char <= '9') {
+                    hasNumber = true;
+                }
+
+                const specialChars = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '=', '+', '_', '.', ',', '<', '>', '?', '/', '{', '}', '[', ']', ':', ';', '"', "'", '|', '\\'];
+                if (specialChars.includes(char)) {
+                    hasSpecialChar = true;
+                }
+            }
+
+            if (!isLengthValid) {
+                passwordFeedback.innerHTML = '<span class="error">Password must be at least 6 characters long.</span>';
+                return false;
+            } else if (!hasLetter) {
+                passwordFeedback.innerHTML = '<span class="error">Password must contain at least one letter.</span>';
+                return false;
+            } else if (!hasNumber) {
+                passwordFeedback.innerHTML = '<span class="error">Password must contain at least one number.</span>';
+                return false;
+            } else if (!hasSpecialChar) {
+                passwordFeedback.innerHTML = '<span class="error">Password must contain at least one special character.</span>';
+                return false;
+            } else {
+                passwordFeedback.innerHTML = '<span class="success">Password is strong.</span>';
+                return true;
+            }
+        }
+
+        function validateConfirmPassword() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const confirmPasswordFeedback = document.getElementById('confirmPasswordFeedback');
+
+            if (confirmPassword !== password) {
+                confirmPasswordFeedback.innerHTML = '<span class="error">Passwords do not match.</span>';
+                return false;
+            } else {
+                confirmPasswordFeedback.innerHTML = '<span class="success">Passwords match.</span>';
+                return true;
+            }
+        }
+
+        function submitForm() {
+            const isNameValid = validateName();
+            const isEmailValid = validateEmail();
+            const isMobileValid = validateMobile();
+            const isAddressValid = validateAddress();
+            const isPasswordValid = validatePassword();
+            const isConfirmPasswordValid = validateConfirmPassword();
+            const isDOBValid = validateDOB();
+
+            if (isNameValid && isEmailValid && isMobileValid && isAddressValid && isPasswordValid && isConfirmPasswordValid && isDOBValid) {
+                alert('Form submitted successfully!');
+            } else {
+                alert('Please fix the errors before submitting.');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation and Text Processing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 10px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Validation and Text Processing</h1>
+
+    <!-- Validation Section -->
+    <div class="container">
+        <h2>Validation</h2>
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Enter email">
+        <button onclick="validateEmail()">Validate Email</button>
+        <div id="emailResult" class="result"></div>
+
+        <label for="password">Password:</label>
+        <input type="text" id="password" placeholder="Enter password">
+        <button onclick="validatePassword()">Validate Password</button>
+        <div id="passwordResult" class="result"></div>
+
+        <label for="url">URL:</label>
+        <input type="text" id="url" placeholder="Enter URL">
+        <button onclick="validateURL()">Validate URL</button>
+        <div id="urlResult" class="result"></div>
+    </div>
+
+    <!-- Text Processing Section -->
+    <div class="container">
+        <h2>Text Processing</h2>
+        <label for="text">Text Input:</label>
+        <textarea id="text" rows="5" placeholder="Enter text to process"></textarea>
+        <button onclick="processText()">Process Text</button>
+        <div id="textResult" class="result"></div>
+    </div>
+
+    <script>
+        // Task 1: Validate email address
+        function validateEmail() {
+            const email = document.getElementById('email').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isValid = emailRegex.test(email);
+            document.getElementById('emailResult').textContent = isValid ? "Valid email!" : "Invalid email.";
+        }
+
+        // Task 2: Validate password
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            const isValid = passwordRegex.test(password);
+            document.getElementById('passwordResult').textContent = isValid ? "Valid password!" : "Invalid password.";
+        }
+
+        // Task 4: Validate URL
+        function validateURL() {
+            const url = document.getElementById('url').value;
+            const urlRegex = /^(https?:\/\/)?([a-z\d-]+\.)+[a-z]{2,}(\/[^\s]*)?$/i;
+            const isValid = urlRegex.test(url);
+            document.getElementById('urlResult').textContent = isValid ? "Valid URL!" : "Invalid URL.";
+        }
+
+        // Task 3: Extract all dates in YYYY-MM-DD format
+        function extractDates(text) {
+            const dateRegex = /\b\d{4}-\d{2}-\d{2}\b/g;
+            const dates = [];
+            let result;
+            while ((result = dateRegex.exec(text)) !== null) {
+                dates.push(result[0]);
+            }
+            return dates;
+        }
+
+        // Task 5: Find all phone numbers in text
+        function findPhoneNumbers(text) {
+            const phoneRegex = /\b\d{10}\b/g;
+            return text.match(phoneRegex) || [];
+        }
+
+        // Task 6: Find all words longer than 5 characters
+        function findLongWords(text) {
+            const wordRegex = /\b\w{6,}\b/g;
+            return Array.from(text.matchAll(wordRegex)).map(match => match[0]);
+        }
+
+        // Task 7: Check if a string starts with a specific word
+        function startsWithWord(text, word) {
+            const wordRegex = new RegExp(`^${word}`, "i");
+            return wordRegex.test(text);
+        }
+
+        // Task 8: Split string into words and remove punctuation
+        function splitAndClean(text) {
+            return text.split(/[\s,.!?]+/).filter(Boolean);
+        }
+
+        // Process Text Input
+        function processText() {
+            const text = document.getElementById('text').value;
+
+            const dates = extractDates(text);
+            const phoneNumbers = findPhoneNumbers(text);
+            const longWords = findLongWords(text);
+            const cleanWords = splitAndClean(text);
+
+            document.getElementById('textResult').innerHTML = `
+                <p><strong>Dates:</strong> ${dates.join(', ') || 'None'}</p>
+                <p><strong>Phone Numbers:</strong> ${phoneNumbers.join(', ') || 'None'}</p>
+                <p><strong>Long Words:</strong> ${longWords.join(', ') || 'None'}</p>
+                <p><strong>Clean Words:</strong> ${cleanWords.join(', ') || 'None'}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click the button to get your coordinates</p>
+    <button onclick="geoLocation()">Try it</button>
+    <p id="demo"></p>
+    <script>
+        x=document.getElementById("demo")
+        function geoLocation(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showposition)
+            }
+            else{
+                x.innerHTML="geolocation is not working"
+            }
+        }
+        function showposition(position){
+            x.innerHTML="latitude :"+position.coords.latitude+" "+"<br>longitude: "+position.coords.longitude;
+        }
+    </script>
+</body>
+</html>

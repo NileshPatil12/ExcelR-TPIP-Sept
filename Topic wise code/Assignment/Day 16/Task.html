@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="alert('This is an inline JavaScript example!')">inline JavaScript</button>
+
+    <script>
+        function internalExample() {
+            alert('This is an internal JavaScript example!');
+        }
+    </script>
+    <button onclick="internalExample()">internal JavaScript</button>
+
+    <button onclick="externalExample()">external JavaScript</button>
+    <script src="external.js"></script>
+</body>
+
+</html>

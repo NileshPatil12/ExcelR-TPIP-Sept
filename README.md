@@ -17,3 +17,6 @@ Movie Watchlist
 
 SnapAd
 👉 https://nileshpatil12.github.io/ExcelR-TPIP-Sept/Project%20Worked%20On/SnapAd/
+
+Registration Page
+👉 https://nileshpatil12.github.io/ExcelR-TPIP-Sept/Project%20Worked%20On/registration/
